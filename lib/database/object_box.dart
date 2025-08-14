@@ -12,6 +12,9 @@ class Objectbox {
   /// A [Box] for interacting with [GameLogs] entities in the database.
   late final Box<GameLogs> gameLogsBox;
 
+  /// A [Box] for interacting with [Creature] entities in the database.
+  late final Box<Creature> creatureBox;
+
   /// Private constructor that initializes the store and entity boxes.
   Objectbox._create(this.store) {
     gameBox = Box<Game>(store);
@@ -20,8 +23,11 @@ class Objectbox {
 
   /// Asynchronously creates and returns an [Objectbox] instance with the store initialized.
   static Future<Objectbox> create() async {
-    final dir = await getApplicationDocumentsDirectory(); // <- Writable path
-    final store = await openStore(directory: dir.path); // <- Pass it here
+    final dir = await getApplicationDocumentsDirectory();
+    final store = await openStore(
+      directory: '${dir.path}/objectbox',
+    ); // <- subfolder
+
     return Objectbox._create(store);
   }
 
@@ -51,7 +57,7 @@ class Objectbox {
     return gameLogsBox.put(newLog);
   }
 
-  /// Retrieves a live stream of all [Game]s associated with a given [DM].
+  /// Retrieves a live stream of all [Game]s.
   ///
   /// This stream updates in real-time whenever the underlying data changes.
   Stream<List<Game>> getGames() {
@@ -73,5 +79,12 @@ class Objectbox {
         .order(GameLogs_.timestamp, flags: Order.descending);
 
     return query.watch(triggerImmediately: true).map((query) => query.find());
+  }
+
+  /// Retrieves a live stream of [Creature]s added to a game
+  Stream<List<Creature>> getPlayers() {
+    final query = creatureBox.query();
+
+    return query.watch(triggerImmediately: true).map((q) => q.find());
   }
 }

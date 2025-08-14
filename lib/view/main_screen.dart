@@ -54,27 +54,21 @@ class _MainScreenState extends State<MainScreen> {
         onTap: _onItemTapped,
         items: const [
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.gun),
+            icon: FaIcon(Icons.sports_martial_arts),
             label: "Combat",
           ),
+          BottomNavigationBarItem(icon: FaIcon(Icons.people), label: "Players"),
+          BottomNavigationBarItem(icon: FaIcon(Icons.pets), label: "Monsters"),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.person),
-            label: "Players",
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.dragon),
-            label: "Monsters",
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.diceD20),
+            icon: FaIcon(Icons.casino),
             label: "Roll Dice",
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.userClock),
+            icon: FaIcon(Icons.playlist_play),
             label: "Initiatives",
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.gear),
+            icon: FaIcon(Icons.settings),
             label: 'Options',
           ),
         ],

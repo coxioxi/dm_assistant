@@ -2,7 +2,6 @@ import 'package:objectbox/objectbox.dart';
 
 /// Represents a single Dungeons & Dragons (or similar) game session.
 ///
-/// Each game belongs to one [DM] and has a name and creation date.
 /// This entity is stored locally using ObjectBox.
 @Entity()
 class Game {
@@ -17,12 +16,8 @@ class Game {
   @Property(type: PropertyType.date)
   DateTime createdAt;
 
-  // Relationships
   @Backlink('game')
-  final players = ToMany<Player>();
-
-  @Backlink('game')
-  final monsters = ToMany<Monster>();
+  final creatures = ToMany<Creature>();
 
   @Backlink('game')
   final gameLogs = ToMany<GameLogs>();
@@ -31,43 +26,15 @@ class Game {
   Game({required this.name, required this.createdAt, this.id = 0});
 }
 
-/// Represents a player character in a game session.
+/// Represents a creature (Player Character/Non Player Character) in a game session.
 @Entity()
-class Player {
-  @Id()
-  int id; // Unique identifier for the player (automatically set by ObjectBox)
-
-  String name; // Player's name
-
-  int hp; // Hit points
-
-  int ac; // Armor Class (defensive stat)
-
-  int initModifier; // Initiative modifier (used to calculate turn order)
-
-  int? initiativeNum; // Initiative value after rolling (nullable until set)
-
-  // Relationship to the Game entity (each player belongs to one game)
-  final game = ToOne<Game>();
-
-  Player({
-    required this.name,
-    required this.hp,
-    required this.ac,
-    required this.initModifier,
-    this.id = 0,
-  });
-}
-
-/// Represents a monster (enemy/NPC) in a game session.
-@Entity()
-class Monster {
+class Creature {
   @Id()
   int id; // Unique identifier for the monster
 
   String name; // Monster's name
 
-  String damage; // Description of the monster's damage (e.g., "1d6 + 3")
+  String? damage; // Description of the monster's damage (e.g., "1d6 + 3")
 
   int hp; // Hit points
 
@@ -77,15 +44,17 @@ class Monster {
 
   int? initiativeNum; // Initiative value after rolling (nullable until set)
 
+  bool npc;
+
   // Relationship to the Game entity (each monster belongs to one game)
   final game = ToOne<Game>();
 
-  Monster({
+  Creature({
     required this.name,
     required this.hp,
     required this.ac,
     required this.initModifier,
-    required this.damage,
+    required this.npc,
     this.id = 0,
   });
 }

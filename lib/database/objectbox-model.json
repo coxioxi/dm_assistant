@@ -4,23 +4,80 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:6060137415845081809",
-      "lastPropertyId": "3:1299989157794505846",
-      "name": "Game",
+      "id": "1:8162950212086993027",
+      "lastPropertyId": "9:6495695085731039543",
+      "name": "Creature",
       "properties": [
         {
-          "id": "1:6964599439772445992",
+          "id": "1:6543804339731205411",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:5180674933977891486",
+          "id": "2:4473251369204385006",
           "name": "name",
           "type": 9
         },
         {
-          "id": "3:1299989157794505846",
+          "id": "3:2375432641967259170",
+          "name": "damage",
+          "type": 9
+        },
+        {
+          "id": "4:8019055122481226249",
+          "name": "hp",
+          "type": 6
+        },
+        {
+          "id": "5:4840042022443041573",
+          "name": "ac",
+          "type": 6
+        },
+        {
+          "id": "6:7016261965808627741",
+          "name": "initModifier",
+          "type": 6
+        },
+        {
+          "id": "7:3911230873281877181",
+          "name": "initiativeNum",
+          "type": 6
+        },
+        {
+          "id": "8:7815963381662105170",
+          "name": "npc",
+          "type": 1
+        },
+        {
+          "id": "9:6495695085731039543",
+          "name": "gameId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "1:2157571580588525681",
+          "relationTarget": "Game"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:8302020563425498954",
+      "lastPropertyId": "3:2806208971755133145",
+      "name": "Game",
+      "properties": [
+        {
+          "id": "1:4369487957850619448",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5295719971729729743",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:2806208971755133145",
           "name": "createdAt",
           "type": 10
         }
@@ -28,144 +85,45 @@
       "relations": []
     },
     {
-      "id": "2:3201101061933727048",
-      "lastPropertyId": "5:4166311896514428065",
+      "id": "3:1335295992899774203",
+      "lastPropertyId": "5:2051911261337565042",
       "name": "GameLogs",
       "properties": [
         {
-          "id": "1:3121128268124519139",
+          "id": "1:1205718834900041200",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:8264097972250239084",
+          "id": "2:6376951574353041658",
           "name": "message",
           "type": 9
         },
         {
-          "id": "3:4855234086473222999",
+          "id": "3:8489668426880208461",
           "name": "type",
           "type": 9
         },
         {
-          "id": "4:1823219503233259680",
+          "id": "4:671434020518737730",
           "name": "timestamp",
           "type": 10
         },
         {
-          "id": "5:4166311896514428065",
+          "id": "5:2051911261337565042",
           "name": "gameId",
           "type": 11,
           "flags": 520,
-          "indexId": "1:1378810197596413248",
-          "relationTarget": "Game"
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "3:8479205470942974259",
-      "lastPropertyId": "8:327288664494788399",
-      "name": "Monster",
-      "properties": [
-        {
-          "id": "1:6945474023004701976",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:5860228342281426578",
-          "name": "name",
-          "type": 9
-        },
-        {
-          "id": "3:5876039036709184129",
-          "name": "damage",
-          "type": 9
-        },
-        {
-          "id": "4:8160903376820438947",
-          "name": "hp",
-          "type": 6
-        },
-        {
-          "id": "5:3334215230626281968",
-          "name": "ac",
-          "type": 6
-        },
-        {
-          "id": "6:1150134985057626668",
-          "name": "initModifier",
-          "type": 6
-        },
-        {
-          "id": "7:413127028353368043",
-          "name": "initiativeNum",
-          "type": 6
-        },
-        {
-          "id": "8:327288664494788399",
-          "name": "gameId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "2:6695355396671081928",
-          "relationTarget": "Game"
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "4:1904335789029239608",
-      "lastPropertyId": "7:2137318420416795434",
-      "name": "Player",
-      "properties": [
-        {
-          "id": "1:5633079998142050008",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:7403787680060528840",
-          "name": "name",
-          "type": 9
-        },
-        {
-          "id": "3:4789809436489283335",
-          "name": "hp",
-          "type": 6
-        },
-        {
-          "id": "4:6092810769775862215",
-          "name": "ac",
-          "type": 6
-        },
-        {
-          "id": "5:8954406222905498654",
-          "name": "initModifier",
-          "type": 6
-        },
-        {
-          "id": "6:3460578570994137333",
-          "name": "initiativeNum",
-          "type": 6
-        },
-        {
-          "id": "7:2137318420416795434",
-          "name": "gameId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "3:1308573643225836344",
+          "indexId": "2:5711626770659220423",
           "relationTarget": "Game"
         }
       ],
       "relations": []
     }
   ],
-  "lastEntityId": "4:1904335789029239608",
-  "lastIndexId": "3:1308573643225836344",
+  "lastEntityId": "3:1335295992899774203",
+  "lastIndexId": "2:5711626770659220423",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
